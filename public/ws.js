@@ -1,5 +1,5 @@
 // Create WebSocket connection.
-const socket = new WebSocket('ws://localhost:5000');
+const socket = new WebSocket('ws://' + location.host);
 
 // Connection opened
 socket.addEventListener('open', function (event) {
