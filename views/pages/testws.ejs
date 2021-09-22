@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include ("../partials/header.ejs") %>
+</head>
+
+<body>
+<script type="text/javascript" src="/ws.js"></script>
+
+<div class="container mt-4">
+<h2 id="loading">Loading...</h2>
+
+<form id="whole-form" style="display: none;">
+  <h2>Enter login info for Payless</h2>
+  <div class="form-group mb-3">
+    <label for="exampleInputEmail1">Email address</label>
+    <input id="email-input" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group mb-3">
+    <label for="exampleInputPassword1">Password</label>
+    <input id="pwd-input" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <small class="form-text text-muted">THIS IS NOT SECURE. Please make sure this password is unique to Payless so your other stuff doesn't get hacked.</small>
+  </div>
+  <div class="form-check mb-3">
+    <input id="recent-only" type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Only get coupons from last 7 days</label>
+  </div>
+  <div id="send-submit" onclick="sendSubmit()" class="btn btn-primary mb-3">Submit</div>
+
+  <div id="progress-encapsulate" style="display: none;">
+    <div class="progress">
+      <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+    </div>
+    <small class="form-text text-muted">Working... please do not exit out of this page.</small>
+  </div>
+
+  <div id="progress-success" class="alert alert-success" role="alert" style="display: none;">
+    Success! You may now leave this page.
+  </div>
+</form>
+
+<div id="something-wrong" style="display: none;">
+  <h2>Something went wrong</h2>
+  <div class="alert alert-danger" role="alert">
+    Server not available. You may want to contact the wizard.
+  </div>
+  
+  <img src="/sad_wizard.jpg" width="50%" />
+</div>
+
+</div>
+
+</body>
+</html>
