@@ -1,13 +1,18 @@
 const express = require('express')
 const path = require('path')
-const PORT = process.env.PORT || 5000
+
 const runPuppeteer = require('./payless')
+const forceUnsafeHTTP = require('./forceUnsafeHTTP')
+
+const PORT = process.env.PORT || 5000
 
 const app = express();
 const expressWs = require('express-ws')(app);
 
 
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(forceUnsafeHTTP())
+
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 app.get('/', (req, res) => res.render('pages/index'))

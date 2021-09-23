@@ -6,3 +6,6 @@ To push changes
 Add/remove workers
 heroku ps:scale web=1
 heroku ps:scale web=0
+
+Logs
+heroku logs --tail
